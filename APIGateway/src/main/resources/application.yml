@@ -1,0 +1,16 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: APIGateway
+  cloud:
+    gateway:
+      routes:
+      - id: Pensionprocess
+        uri: lb://Pensionprocess
+        predicates:
+        - Path=/Pensionprocess/**
+      - id: Pensiondetail
+        uri: lb://Pensiondetail
+        predicates:
+        - Path="/Pensiondetail/**" 
